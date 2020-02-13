@@ -1,10 +1,6 @@
-<div class="titlebar">
-  <h1>Usuario<h1>
-</div>
-<div class="divider">
-</div>
-<div class="messages-area">
-  <h1>Dashboard#index</h1>
-  <p>Find me in app/views/dashboard/index.html.erb</p>
-  <%= current_user.username %>, <%= current_user.email %> - <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-</div>
+<h1>Dashboard#index</h1>
+<p>Find me in app/views/dashboard/index.html.erb</p>
+<% if current_user.avatar.attached? %>
+  <%= image_tag(current_user.avatar) %>
+<% end %>
+<%= current_user.username %>, <%= current_user.email %> - <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
