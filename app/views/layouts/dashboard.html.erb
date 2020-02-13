@@ -9,12 +9,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="sidebar">
-    </div>
-    <%= yield %>
-    </div>
+  <body class="app">
+    <aside class="menu-area">
+      <nav class="menu">
+      </nav>
+    </aside>
+    <%= render partial: 'includes/topbar' %>
+    <main class="content container-fluid">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div class="p-3 mt-3">
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="footer p-3">
+      <span>
+        Desenvolvedor de peixes, programando atipicamente.
+      </span>
+    </footer>
   </body>
 </html>
