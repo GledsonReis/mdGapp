@@ -1,5 +1,4 @@
-class PostsController < ApplicationController
-  layout "dashboard"
+class PostsController < AuthController 
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts

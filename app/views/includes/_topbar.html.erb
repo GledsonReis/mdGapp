@@ -2,18 +2,20 @@
   <div class="content">
   </div>
   <div class="user-options">
-    <% if current_user.avatar.attached? %>
-      <%= image_tag(current_user.avatar, size: "50x50", class: "rounded-circle") %>
-    <% else %>
-      <%= image_tag(asset_path("user.jpg"), size: "50x50", class: "rounded-circle") %>
-    <% end %>
-    <div class="dropdown">
-      <a class="btn btn-link text-decoration-none dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= current_user.username %>
-      </a >
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+    <% if user_signed_in? %>
+      <% if current_user.avatar.attached? %>
+        <%= image_tag(current_user.avatar, size: "50x50", class: "rounded-circle") %>
+      <% else %>
+        <%= image_tag(asset_path("user.jpg"), size: "50x50", class: "rounded-circle") %>
+      <% end %>
+      <div class="dropdown">
+        <a class="btn btn-link text-decoration-none dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.username %>
+        </a >
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </header>
