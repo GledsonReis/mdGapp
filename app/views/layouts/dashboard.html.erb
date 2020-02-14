@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>MsGapp</title>
+    <%= favicon_link_tag asset_path('/favicons/favicon.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,7 +12,7 @@
   <body class="app">
     <aside class="menu-area">
       <div class="logo">
-        <%= image_tag(asset_path('user.jpg'), size: "100x100") %>
+        <%= image_tag(asset_path('last_logo_white.svg'), size: "100x100") %>
       </div>
       <nav class="menu">
         <a href="#">Posts</a>
