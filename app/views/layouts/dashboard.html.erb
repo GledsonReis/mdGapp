@@ -12,7 +12,9 @@
   <body class="app">
     <aside class="menu-area">
       <div class="logo">
-        <%= image_tag(asset_path('last_logo_white.svg'), size: "100x100") %>
+        <%= link_to dashboard_index_path do %>
+          <%= image_tag(asset_path('last_logo_white.svg'), size: "100x100") %>
+        <% end %>
       </div>
       <nav class="menu">
         <%= link_to 'Posts', posts_path %>
