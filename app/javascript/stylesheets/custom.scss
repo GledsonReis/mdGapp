@@ -214,3 +214,14 @@ footer.footer {
 .post-card span {
   font-size: 0.8em;
 }
+
+.btn-blue {
+  background-color: #07a7e3;
+  color: white;
+  box-shadow: var(--shadow)
+}
+
+.btn-blue:hover {
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% );
+  color: white;
+}
