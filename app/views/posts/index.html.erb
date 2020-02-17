@@ -2,14 +2,14 @@
 
 <h1>Posts</h1>
 <% @posts.each do |post| %>
-  <div class="card">
+  <div class="card post-card">
     <div class="card-header d-flex justify-content-between">
       <h4><%= post.title %></h4>
       <div class="dropdown">
         <a class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-ellipsis-v"></i>
         </a >
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <%= link_to post, class: "dropdown-item" do %>
             Show
           <% end %>
