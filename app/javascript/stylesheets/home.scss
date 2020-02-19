@@ -65,10 +65,32 @@ code {
 }
 
 section {
+  display: flex;
+  margin: 0;
   height: 40vh;
 }
 
 .bg-gradient-blue {
   background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% );
   color: white;
+}
+
+.home-right-area {
+  margin: auto 0;
+  text-align: left;
+  width: 50%;
+}
+
+.home-left-area {
+  margin: auto ;
+  text-align: center;
+  width: 50%;
+}
+
+.bg-home-dark {
+  background-color: var(--bg-dark);
+}
+
+footer {
+  height: 20vh;
 }
