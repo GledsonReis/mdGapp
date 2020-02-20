@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MsGapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'home', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'home', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-home-dark">
+      <a class="navbar-brand title-font" href="#">MsGapp</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <a class="btn btn-link text-decoration-none text-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag(current_user.avatar, size: "40x40", class: "rounded-circle") %>
+              <% else %>
+                <%= image_tag(asset_path("user.png"), size: "40x40", class: "rounded-circle") %>
+              <% end %>
+              <%= current_user.username %>
+            </a >
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+            </div>
+          </div>
+        <% else %>
+          <form class="form-inline my-2 my-lg-0">
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-link text-decoration-none text-light" %>
+            <%= link_to('Login', new_user_session_path, class: "btn btn-outline-light") %> 
+          </form>
+        <% end %>
+      </div>
+    </nav>
+    <div class="bg-landimage py-9">
+      <div class="text-light bg-fade">
+        <h1 class="display-4 title-font">MsGapp</h1>
+        <p class="lead">Um novo de jeito de interagir com sua equipe de trabalho, grupo de estudos e amigos.</p>
+        <%= link_to 'Começar agora', new_user_registration_path, class: "btn btn-blue"%>
+      </div>
+    </div>
+    <section class="bg-gradient-blue">
+      <div class="home-left-area">
+        <%= image_tag(asset_path("post-icon.svg"), size: "250x250") %>
+      </div>
+      <div class="home-right-area">
+        <h3>Faca posts, visualize posts da comunidade, reaja e comente...</h3>
+      </div>
+    </section>
+    <section class="bg-white justify-content-center">
+      <div class="home-left-area">
+        <h3>Já tem uma conta? <br />Não deixe seus amigos vácuo. <br />Faça login e confiras suas mensagens</h3>
+        <%= link_to 'Entrar', new_user_registration_path, class: "btn btn-lg btn-blue" %>
+      </div>
+    </section>
+    <footer class="bg-home-dark text-white text-center">
+      <span>
+        Desenvolvedor de peixes, programando atipicamente.
+      </span>
+    </footer>
+  </body>
+</html>

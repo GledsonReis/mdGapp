@@ -18,5 +18,6 @@ require("channels")
 
 import "bootstrap";
 import "../stylesheets/application";
+import "../stylesheets/auth";
 import "./custom";
 import "@fortawesome/fontawesome-free/js/all";

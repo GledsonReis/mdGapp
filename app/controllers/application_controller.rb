@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  layout 'auth', if: :devise_controller?
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private

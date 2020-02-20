@@ -1,0 +1,96 @@
+@import "bootstrap";
+@import '@fortawesome/fontawesome-free';
+@import url('https://fonts.googleapis.com/css?family=Pattaya&display=swap');
+
+:root {
+  --bg-dark: #1a2f3a;
+
+  --shadow:
+    0 2px 23px 0 rgba(0, 0, 0, 0.1),
+    0 2px 49px 0 rgba(0, 0, 0, 0.06);
+}
+
+body {
+  background: var(--bg-dark);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body .title {
+  padding: 10px 0;
+  text-align: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'MontSerrat', sans-serif;
+}
+
+.bg-landimage {
+  background-image: url('../images/land.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.bg-fade {
+  align-self: flex-start;
+  height: 40vh;
+  width: 50%;
+  padding: 40px;
+  background:  rgba(0, 0, 0, 0.5);
+}
+
+.title-font {
+  font-family: 'Pattaya', sans-serif;
+}
+
+.btn-blue {
+  background-color: #07a7e3;
+  color: white;
+  box-shadow: var(--shadow)
+}
+
+.btn-blue:hover {
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% );
+  color: white;
+}
+
+section {
+  display: flex;
+  margin: 0;
+  height: 40vh;
+}
+
+.bg-gradient-blue {
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% );
+  color: white;
+}
+
+.home-right-area {
+  margin: auto 0;
+  text-align: left;
+  width: 50%;
+}
+
+.home-left-area {
+  margin: auto ;
+  text-align: center;
+  width: 50%;
+}
+
+.bg-home-dark {
+  background-color: var(--bg-dark);
+}
+
+footer {
+  height: 20vh;
+}
