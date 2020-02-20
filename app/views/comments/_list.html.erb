@@ -1,0 +1,12 @@
+<h4>Comments</h4>
+<% if comments.present? %>
+  <% comments.each do |comment| %>
+    <div class="comment-item border mx-2">
+      <p><%= comment.comment %></p>
+    </div>
+  <% end %>
+<% else %>
+  <div class="comment-item mx-2">
+    <p>Nenhum comentário ainda.</p>
+  </div>
+<% end %>
