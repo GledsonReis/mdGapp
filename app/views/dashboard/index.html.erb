@@ -17,11 +17,13 @@
             <%= link_to post, class: "dropdown-item" do %>
               Show
             <% end %>
-            <%= link_to edit_post_path(post), class: "dropdown-item" do %>
-              Editar
-            <% end %>
-            <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do %>
-              Excluir
+            <% if post.user_id == current_user.id %>
+              <%= link_to edit_post_path(post), class: "dropdown-item" do %>
+                Editar
+              <% end %>
+              <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do %>
+                Excluir
+              <% end %>
             <% end %>
           </div>
         </div>

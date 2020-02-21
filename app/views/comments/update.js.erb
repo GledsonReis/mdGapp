@@ -1,0 +1,6 @@
+$("#comments").html("<%= escape_javascript(render "comments/list", comments: @comments ) %>");
+// $("#edit<%= @comment.id %>").modal('hide');
+console.log('<%= @comment.id %>')
+$("#edit<%= @comment.id %>").modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
