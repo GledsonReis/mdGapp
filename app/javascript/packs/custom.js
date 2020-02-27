@@ -1,7 +1,7 @@
-$(function() {
-  $('[data-toggle="tooltip"]').tooltip();
-});
+// document.addEventListener("turbolinks:load", () => {
+//   $("[data-toggle='tooltip']").tooltip()
+// });
 
-$(function() {
-  $('[data-toggle="popover"]').popover();
-});
+// document.addEventListener("turbolinks:load", () => {
+//   $("[data-toggle='popover']").tooltip()
+// });

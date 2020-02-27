@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+import jquery from 'jquery';
+window.$ = window.jquery = jquery;
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,8 +18,22 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "bootstrap";
+import 'bootstrap/dist/js/bootstrap';
 import "../stylesheets/application";
 import "../stylesheets/auth";
 import "./custom";
 import "@fortawesome/fontawesome-free/js/all";
+
+$(document).on('turbolinks:load', function() {
+  $('body').tooltip({
+    selector: '[data-toggle="tooltip"]',
+    container: 'body',
+  });
+
+  $('body').popover({
+    selector: '[data-toggle="popover"]',
+    container: 'body',
+    html: true,
+    trigger: 'hover',
+  });
+});

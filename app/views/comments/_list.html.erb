@@ -1,0 +1,45 @@
+<h5>Comments</h5>
+<% if comments.present? %>
+  <% comments.each do |comment| %>
+    <div class="comment-item border mx-2 p-2 d-flex justify-content-between">
+      <div class="w-auto">
+        <span class="mb-0"><%= comment.comment %></span>
+      </div>
+      <div class="dropdown my-auto">
+        <a class="btn btn-link text-muted text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-sm fa-ellipsis-v"></i>
+        </a >
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <% if comment.user_id == current_user.id %>
+            <button type="button" class="dropdown-item" data-toggle="modal" data-target="#edit<%= comment.id%>">
+              Editar
+            </button>
+            <%= link_to comment, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "dropdown-item" do %>
+              Excluir
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="edit<%= comment.id%>" tabindex="-1" role="dialog" aria-labelledby="edit<%= comment.id%>Title" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="edit<%= comment.id%>Title">Editar status</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= render 'comments/form', comment: comment %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="comment-item mx-2">
+    <p>Nenhum comentário ainda.</p>
+  </div>
+<% end %>

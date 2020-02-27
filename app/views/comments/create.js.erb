@@ -1,0 +1,2 @@
+$("#comments").html("<%= escape_javascript(render "comments/list", comments: @comments ) %>")
+$("#new_comment_form").html("<%= escape_javascript(render "comments/form", comment: @comments.new ) %>")
