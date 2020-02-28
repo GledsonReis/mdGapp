@@ -3,6 +3,7 @@
   <head>
     <title>MsGapp</title>
     <%= favicon_link_tag asset_path('favicons/favicon.png') %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,17 +18,22 @@
         <% end %>
       </div>
       <nav class="menu">
-        <%= link_to 'Posts', posts_path %>
+        <%= link_to 'Início', dashboard_index_path %>
+        <%= link_to 'Meus Posts', posts_path %>
         <a href="#">Mensagens</a>
-        <hr class="bg-white">
         <a href="#">Configurações</a>
       </nav>
     </aside>
+    <div id="mySidenav" class="collapse-menu">
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <%= link_to 'Início', dashboard_index_path %>
+      <%= link_to 'Meus Posts', posts_path %>
+      <a href="#">Mensagens</a>
+      <a href="#">Configurações</a>
+    </div>
     <%= render partial: 'includes/topbar' %>
     <main class="content container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <div class="p-3 mt-3">
+      <div class="p-2 mt-2">
         <%= yield %>
       </div>
     </main>

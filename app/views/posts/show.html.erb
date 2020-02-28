@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div class="border">
-  <div class="d-flex justify-content-between p-0">
+<div class="card post-card w-100 shadow-sm">
+  <div class="card-header d-flex justify-content-between p-0">
     <div class="post-title d-flex">
       <%= @post.user.avatar.present? ? image_tag(@post.user.avatar, size: "30x30", class: "rounded-circle mx-2 align-self-center") : image_tag(asset_path("user.png"), size: "30x30", class: "rounded-circle mx-2 align-self-center") %> 
       <div class="align-self-start my-1">
@@ -25,20 +25,22 @@
     </div>
   </div>
   <hr >
-
-  <div class="m-3">
-    <p class="text-muted">
-      <%= @post.content %>
-    </p>
+  <div class="card-body">
+    <div class="m-3">
+      <p class="text-muted">
+        <%= @post.content %>
+      </p>
+    </div>
   </div>
 
-
-  <div class="bg-light p-2">
-    <div id="comments">
-      <%= render 'comments/list', comments: @post.comments %>
-    </div>
-    <div id="new_comment_form">
-      <%= render 'comments/form', comment: @post.comments.new %>
+  <div class="card-footer">
+    <div class="bg-light p-2">
+      <div id="comments">
+        <%= render 'comments/list', comments: @post.comments %>
+      </div>
+      <div id="new_comment_form">
+        <%= render 'comments/form', comment: @post.comments.new %>
+      </div>
     </div>
   </div>
 </div>

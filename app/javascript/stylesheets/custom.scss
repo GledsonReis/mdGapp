@@ -50,10 +50,6 @@ code {
   background-color: #f5f5f5;
 }
 
-// aside.logo {
-//   grid-area: logo;
-// }
-
 header.header {
   grid-area: header;
 }
@@ -70,59 +66,6 @@ footer.footer {
   grid-area: footer;
 }
 
-@media(max-width: 768px){
-  .app {
-    grid-template-rows:
-      var(--header-height)
-      var(--menu-top-height)
-      1fr
-      var(--footer-height);
-    grid-template-columns: var(--aside-width) 1fr;
-    grid-template-areas: 
-      "menu header"
-      "menu menu"
-      "content content"
-      "footer footer";
-  }
-}
-
-@media(max-width: 576px){
-  .app {
-    grid-template-rows: 
-      var(--logo-height-mobile)
-      var(--menu-top-height)
-      1fr
-      var(--footer-height);
-    grid-template-columns: auto;
-    grid-template-areas:
-      "menu"
-      "content"
-      "footer";
-  }
-
-  header.header {
-    display: none!important;
-  }
-}
-
-// logo
-// aside.logo {
-//   background-color: var(--bg-dark);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// aside.logo img {
-//   padding: 0px 15px;
-//   width: 100%;
-// }
-
-@media(max-width: 576px){
-  .aside.logo img{
-    width: 350px;
-  }
-}
 
 // header
 header.header {
@@ -137,6 +80,11 @@ header.header {
 
 header.header h1 {
   font-size: 1.8em;
+}
+
+header.header .content {
+  display: flex;
+  align-items: center;
 }
 
 .user-options {
@@ -171,30 +119,12 @@ aside.menu-area {
 }
 
 .menu a:hover {
+  color: white;
   background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% ); 
-}
-
-@media(max-width: 768px){
-  .menu {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    justify-content: space-around;
-  }
-
-  .menu a {
-    padding: 10px;
-    margin: 0px;
-    width: 100%;
-    text-align: center;
-  }
 }
 
 //main
 main > div {
-  background-color: #fff;
-  box-shadow: 0 0 15px #0004;
   margin-bottom: 1rem;
 }
 
@@ -208,7 +138,7 @@ footer.footer {
 }
 
 .post-card {
-  width: 30vw;
+  width: 400px;
 }
 
 .post-card span {
@@ -228,4 +158,117 @@ footer.footer {
 
 p {
   word-wrap: break-word;
+}
+
+a {
+  color: #07a7e3;
+}
+
+.comment-item .comment-content {
+  max-width: 80%;
+  word-wrap: break-word;
+} 
+
+.collapse-menu {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: var(--bg-dark); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the menu */
+}
+
+/* The navigation menu links */
+.collapse-menu a {
+  padding: 8px 32px 8px 32px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.collapse-menu a:hover {
+  color: #f1f1f1;
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% ); 
+}
+
+/* Position and style the close button (top right corner) */
+.collapse-menu .closebtn {
+  text-align: right;
+}
+
+@media(max-width: 768px){
+  .app {
+    grid-template-rows:
+      var(--header-height)
+      1fr
+      var(--footer-height);
+    grid-template-columns: var(--aside-width) 1fr;
+    grid-template-areas: 
+      "menu header"
+      "menu content"
+      "menu footer";
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .menu a {
+    padding: 10px;
+    margin: 0px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .post-card {
+    max-width: 90vw;
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .user-options img {
+    width: 40px;
+    height: auto;
+  }
+}
+
+@media(max-width: 576px){
+  .app {
+    grid-template-rows:
+      var(--header-height)
+      1fr
+      var(--footer-height);
+    grid-template-columns: auto;
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+  }
+
+  aside {
+    display: none!important;
+  }
+
+  .post-card {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  // .user-options img {
+  //   width: 25px;
+  //   height: auto;
+  // }
 }

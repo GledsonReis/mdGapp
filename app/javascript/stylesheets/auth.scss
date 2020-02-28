@@ -1,4 +1,4 @@
-@import "bootstrap";
+@import 'bootstrap/dist/css/bootstrap';
 @import '@fortawesome/fontawesome-free';
 
 :root {
@@ -19,6 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 body .title {
   padding: 10px 0;
   text-align: center;
@@ -28,7 +29,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 * {
   box-sizing: border-box;
   font-family: 'MontSerrat', sans-serif;
@@ -37,6 +37,11 @@ code {
 a {
   text-decoration: none!important;
   margin: 0;
+}
+
+.logo-img {
+  width: 100px;
+  height: auto;
 }
 
 .btn-blue {
@@ -48,4 +53,14 @@ a {
 .btn-blue:hover {
   background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% );
   color: white;
+}
+
+.login-card {
+  width: 500px;
+}
+
+@media(max-width: 768px){
+  .login-card {
+    width: 400px;
+  }
 }

@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
 <div class="d-flex flex-wrap">
   <% @posts.each do |post| %>
-    <div class="card post-card m-1">
+    <div class="card post-card shadow-sm m-1">
       <div class="card-header d-flex justify-content-between p-0">
         <div class="post-title d-flex">
           <%= post.user.avatar.present? ? image_tag(post.user.avatar, size: "30x30", class: "rounded-circle mx-2 align-self-center") : image_tag(asset_path("user.png"), size: "30x30", class: "rounded-circle mx-2 align-self-center") %> 

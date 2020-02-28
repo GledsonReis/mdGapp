@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>MsGapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,10 +11,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= image_tag(asset_path('last_logo_white.svg'), size: "150x150", class: "mx-auto d-block") %>
-    <div class="card col-sm-10 col-md-6 col-lg-6 col-xl-3 mx-auto p-4">
+    <%= image_tag(asset_path('last_logo_white.svg'), size: "150x150", class: "mx-auto logo-img d-block") %>
+    <div class="card login-card mx-auto p-4">
       <%= yield %>
     </div>
   </body>
