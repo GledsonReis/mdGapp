@@ -4,6 +4,7 @@
     <title>MsGapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_pack_tag 'home', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'home', 'data-turbolinks-track': 'reload' %>
@@ -71,10 +72,8 @@
         <%= link_to 'Entrar', new_user_registration_path, class: "btn btn-lg btn-blue" %>
       </div>
     </section>
-    <footer class="bg-home-dark text-white text-center">
-      <span>
-        Desenvolvedor de peixes, programando atipicamente.
-      </span>
+    <footer class="bg-home-dark text-white text-center p-4">
+      <span>Desenvolvedor de peixes, programando atipicamente.</span>
     </footer>
   </body>
 </html>

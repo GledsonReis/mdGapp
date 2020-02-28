@@ -119,6 +119,7 @@ aside.menu-area {
 }
 
 .menu a:hover {
+  color: white;
   background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% ); 
 }
 
@@ -159,6 +160,48 @@ p {
   word-wrap: break-word;
 }
 
+a {
+  color: #07a7e3;
+}
+
+.comment-item .comment-content {
+  max-width: 80%;
+  word-wrap: break-word;
+} 
+
+.collapse-menu {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: var(--bg-dark); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the menu */
+}
+
+/* The navigation menu links */
+.collapse-menu a {
+  padding: 8px 32px 8px 32px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.collapse-menu a:hover {
+  color: #f1f1f1;
+  background: linear-gradient(135deg, #07a7e3 0%, #32dac3 100% ); 
+}
+
+/* Position and style the close button (top right corner) */
+.collapse-menu .closebtn {
+  text-align: right;
+}
+
 @media(max-width: 768px){
   .app {
     grid-template-rows:
@@ -189,6 +232,17 @@ p {
     width: 100%;
     text-align: left;
   }
+
+  .post-card {
+    max-width: 90vw;
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .user-options img {
+    width: 40px;
+    height: auto;
+  }
 }
 
 @media(max-width: 576px){
@@ -208,40 +262,13 @@ p {
     display: none!important;
   }
 
-  .menu {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: var(--bg-dark); /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the menu */
-  }
-  
-  /* The navigation menu links */
-  .menu a {
-    padding: 8px 32px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* When you mouse over the navigation links, change their color */
-  .menu a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  .menu .closebtn {
-    text-align: right;
-  }
-
   .post-card {
-    width: 90%;
+    width: 100%;
     margin: 10px auto;
   }
+
+  // .user-options img {
+  //   width: 25px;
+  //   height: auto;
+  // }
 }

@@ -5,9 +5,9 @@
   <div class="user-options">
     <% if user_signed_in? %>
       <% if current_user.avatar.attached? %>
-        <%= image_tag(current_user.avatar, size: "50x50", class: "rounded-circle") %>
+        <%= image_tag(current_user.avatar, size: "40x40", class: "rounded-circle") %>
       <% else %>
-        <%= image_tag(asset_path("user.png"), size: "50x50", class: "rounded-circle") %>
+        <%= image_tag(asset_path("user.png"), size: "40x40", class: "rounded-circle") %>
       <% end %>
       <div class="dropdown">
         <a class="btn btn-link text-decoration-none dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

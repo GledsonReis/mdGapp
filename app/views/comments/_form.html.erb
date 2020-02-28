@@ -1,4 +1,4 @@
-<div class="comment-item mx-2">
+<div class="comment-item">
   <%= form_with(model: comment, remote: true) do |form| %>
     <div class="field">
       <%= form.hidden_field :post_id, id: "comment_#{comment.id}_post" %>
