@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= image_tag(asset_path('last_logo_white.svg'), size: "150x150", class: "mx-auto d-block") %>
+    <%= image_tag(asset_path('last_logo_white.svg'), size: "150x150", class: "mx-auto logo-img d-block") %>
     <div class="card login-card mx-auto p-4">
       <%= yield %>
     </div>
