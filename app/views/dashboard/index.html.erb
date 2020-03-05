@@ -1,6 +1,6 @@
 <div class="d-flex flex-wrap">
   <% @posts.each do |post| %>
-    <div class="card post-card shadow-sm m-1">
+    <div class="card post-card shadow-sm">
       <div class="card-header d-flex justify-content-between p-0">
         <div class="post-title d-flex">
           <%= post.user.avatar.present? ? image_tag(post.user.avatar, size: "30x30", class: "rounded-circle mx-2 align-self-center") : image_tag(asset_path("user.png"), size: "30x30", class: "rounded-circle mx-2 align-self-center") %> 
@@ -29,9 +29,21 @@
         </div>
       </div>
       <div class="card-body">
-        <h4><%= post.title %></h4>
-        <hr>
-        <p><%= post.content %></p>
+        <div class="m-3">
+          <h4><%= post.title %></h4>
+          <hr>
+          <p><%= simple_format post.content %></p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="bg-light p-2">
+          <div id="comments">
+            <%= render 'comments/list', comments: post.comments %>
+          </div>
+          <div id="new_comment_form">
+            <%= render 'comments/form', comment: post.comments.new %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
