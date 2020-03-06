@@ -1,0 +1,11 @@
+<div>
+  <% if @user.avatar.attached? %>
+    <%= image_tag(@user.avatar, size: "40x40", class: "rounded-circle") %>
+  <% else %>
+    <%= image_tag(asset_path("user.png"), size: "40x40", class: "rounded-circle") %>
+  <% end %>
+  <h4><%= @user.username %> </h4>
+  <div id="follow">
+    <%= render 'includes/follow_button', followed: @user, can_follow: @can_follow %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<p>Seguindo: <%= followed.followings.size %></p>
+<p>Seguidores: <%= followed.followers.size %></p>
+<% if followed.id != current_user.id %>
+  <% if can_follow %>
+    <%= link_to 'Seguir', follow_path(id: followed.id), class: "rounded-pill btn btn-outline-dark", remote: true %>
+  <% else %>
+    <%= link_to 'Deixar de seguir', unfollow_path(id: followed.id), method: :delete, class: "rounded-pill btn btn-dark", remote: true %>
+  <% end %>
+<% end %>

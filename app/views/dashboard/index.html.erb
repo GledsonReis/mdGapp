@@ -3,9 +3,13 @@
     <div class="card post-card shadow-sm">
       <div class="card-header d-flex justify-content-between p-0">
         <div class="post-title d-flex">
-          <%= post.user.avatar.present? ? image_tag(post.user.avatar, size: "30x30", class: "rounded-circle mx-2 align-self-center") : image_tag(asset_path("user.png"), size: "30x30", class: "rounded-circle mx-2 align-self-center") %> 
+          <%= link_to profile_path(id: post.user_id), class: "text-decoration-nome text-dark mx-2 align-self-center" do %>
+            <%= post.user.avatar.present? ? image_tag(post.user.avatar, size: "30x30", class: "rounded-circle") : image_tag(asset_path("user.png"), size: "30x30", class: "rounded-circle mx-2 align-self-center") %> 
+          <% end %>
           <div class="align-self-start my-1">
-            <p class="mb-0"><%= post.user.username %></p>
+            <%= link_to profile_path(id: post.user_id), class: "text-decoration-nome text-dark" do %>
+              <p class="mb-0"><%= post.user.username %></p>
+            <% end %>
             <span class="text-muted"><%= time_ago_in_words(post.created_at) %></span>
           </div>
         </div>
