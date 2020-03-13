@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :followers, through: :received_follows, source: :follower
   has_many :given_follows, foreign_key: :follower_id, class_name: "Follow"
   has_many :followings, through: :given_follows, source: :followed_user
+  has_many :messages, dependent: :destroy
+  has_and_belongs_to_many :chatrooms, dependent: :destroy
 
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
 

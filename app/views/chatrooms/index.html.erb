@@ -1,0 +1,7 @@
+<% if @chatrooms.present? %>
+  <% @chatrooms.each do |chatroom| %>
+    <%= chatroom.name %>
+  <% end %>
+<% else %>
+  <p>Nenhuma conversa</p>
+<% end %>
