@@ -6,6 +6,7 @@ class ChatroomsController < AuthController
 
   def index
     @chatrooms = Chatroom.all
+    @new_chatroom = Chatroom.new
   end
 
   def show; end
