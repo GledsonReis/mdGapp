@@ -1,5 +1,4 @@
-<p>Seguindo: <%= followed.followings.size %></p>
-<p>Seguidores: <%= followed.followers.size %></p>
+<span>Seguindo: <%= followed.followings.size %> </span><span>Seguidores: <%= followed.followers.size %></p>
 <% if followed.id != current_user.id %>
   <% if can_follow %>
     <%= link_to 'Seguir', follow_path(id: followed.id), class: "rounded-pill btn btn-outline-dark", remote: true %>
