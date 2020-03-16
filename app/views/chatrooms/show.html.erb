@@ -1,0 +1,4 @@
+<%= @chatroom.name %>
+<% @chatroom.messages.each do |message| %>
+  <%= message.content %>
+<% end %>
