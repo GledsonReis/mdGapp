@@ -1,4 +1,4 @@
 <%= @chatroom.name %>
-<% @chatroom.messages.each do |message| %>
-  <%= message.content %>
-<% end %>
+<div id="chatroom">
+  <%= render partial: 'messages/list', locals: { messages: @chatroom.messages, chatroom: @chatroom } %>
+<div>

@@ -1,0 +1,22 @@
+<div class="m-1 overflow-auto">
+  <% messages.each do |message| %>
+    <div class="row m-1 justify-content-<%= message.user_id == current_user.id ? "end" : "start" %>">
+      <div class="rounded-lg bg-primary text-white px-4 py-2">
+        <p class="m-0 text-small"><%= message.user.username %></p>
+        <p class="m-0 text-small font-weight-bolder"><%= message.content %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="align-self-end">
+  <% msg = chatroom.messages.build %>
+  <%= form_with(model: [chatroom, msg], remote: true, class: "form-inline") do |form| %>
+    <div class="form-group">
+      <%= form.text_field :content, placeholder: "Menssagem", class: 'form-control' %>
+    </div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <div class="actions">
+      <%= form.submit 'Enviar', class: 'btn btn-dark' %>
+    </div>
+  <% end %>
+</div>

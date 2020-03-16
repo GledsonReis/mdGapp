@@ -1,0 +1,1 @@
+$("#chatroom").html("<%= escape_javascript(render "messages/list", messages: @chatroom.messages, chatroom: @chatroom ) %>")

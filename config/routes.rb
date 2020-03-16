@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     confirmations: 'confirmations'
   }
-  resources :chatrooms
+  resources :chatrooms do
+    resources :messages
+  end
+  resources :messages
   resources :dashboard, only: [:index]
   resources :home, only: [:index]
   root to: "home#index"

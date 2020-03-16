@@ -241,6 +241,10 @@ a {
   max-height: 300px;
 }
 
+.text-small {
+  font-size: 0.8em;
+}
+
 @media(max-width: 1200px){
   .posts {
     margin: 10px auto;
