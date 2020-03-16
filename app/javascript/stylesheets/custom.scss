@@ -174,7 +174,7 @@ a {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 3; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: var(--bg-dark); /* Black*/
@@ -201,6 +201,88 @@ a {
 /* Position and style the close button (top right corner) */
 .collapse-menu .closebtn {
   text-align: right;
+}
+
+.session-profile {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.profile-photo {
+  margin: 5px;
+  align-self: start;
+}
+
+.profile-photo img {
+  width: 150px;
+  height: auto;
+}
+
+.profile-info {
+  margin: 5px;
+}
+
+.posts {
+  margin: 10px auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.posts .post-card {
+  margin: 10px;
+  width: 30%;
+}
+
+.post .body-content{
+  max-height: 300px;
+}
+
+.text-small {
+  font-size: 0.8em;
+}
+
+@media(max-width: 1200px){
+  .posts {
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+  }
+  
+  .posts .post-card {
+    margin: 10px;
+    width: 45%;
+  }
+  
+  .post .body-content{
+    max-height: 300px;
+  }
+}
+
+@media(max-width: 992px){
+  .posts {
+    margin: 10px auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+  }
+  
+  .posts .post-card {
+    margin: 10px;
+    width: 100%;
+  }
+  
+  .post .body-content{
+    max-height: 300px;
+  }
 }
 
 @media(max-width: 768px){
@@ -242,6 +324,17 @@ a {
 
   .user-options img {
     width: 40px;
+    height: auto;
+  }
+
+  .session-profile {
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+  }
+
+  .profile-photo img {
+    width: 100px;
     height: auto;
   }
 }

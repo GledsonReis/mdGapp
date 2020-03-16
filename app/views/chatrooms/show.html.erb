@@ -1,0 +1,4 @@
+<%= @chatroom.name %>
+<div id="chatroom">
+  <%= render partial: 'messages/list', locals: { messages: @chatroom.messages, chatroom: @chatroom } %>
+<div>

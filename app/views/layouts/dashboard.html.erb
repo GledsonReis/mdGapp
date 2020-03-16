@@ -20,7 +20,7 @@
       <nav class="menu">
         <%= link_to 'Início', dashboard_index_path %>
         <%= link_to 'Meus Posts', posts_path %>
-        <a href="#">Mensagens</a>
+        <%= link_to 'Conversas', chatrooms_path %>
         <a href="#">Configurações</a>
       </nav>
     </aside>
@@ -28,12 +28,12 @@
       <a href="javascript:void(0)" class="closebtn">&times;</a>
       <%= link_to 'Início', dashboard_index_path %>
       <%= link_to 'Meus Posts', posts_path %>
-      <a href="#">Mensagens</a>
+      <%= link_to 'Conversas', chatrooms_path %>
       <a href="#">Configurações</a>
     </div>
     <%= render partial: 'includes/topbar' %>
     <main class="content container-fluid">
-      <div class="p-2 mt-2">
+      <div class="p-2 mt-2 h-100">
         <%= yield %>
       </div>
     </main>

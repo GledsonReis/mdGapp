@@ -2,7 +2,14 @@
   <% comments.each do |comment| %>
     <div class="comment-item border p-1 d-flex justify-content-between">
       <div class="comment-content">
-        <span class="mb-0"> <a href="#"><%= comment.user.username %></a></span> <span> <%= comment.comment %></span>
+        <span class="mb-0">
+          <%= link_to profile_path(id: comment.user_id) do %>
+            <%= comment.user.username %>
+          <%end%>
+        </span>
+        <span>
+          <%= comment.comment %>
+        </span>
       </div>
       <div class="dropdown my-auto">
         <% if comment.user_id == current_user.id %>
