@@ -5,4 +5,5 @@
   <% else %>
     <%= link_to 'Deixar de seguir', unfollow_path(id: followed.id), method: :delete, class: "rounded-pill btn btn-dark", remote: true %>
   <% end %>
+  <%= link_to 'Messagem', chatrooms_path(user_id: followed.id), class: "rounded-pill btn btn-outline-dark", method: :post %>
 <% end %>

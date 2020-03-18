@@ -1,4 +1,19 @@
-<%= @chatroom.name %>
-<div id="chatroom">
+<div class="d-flex align-items-center justify-content-between bg-white border border-left-0 border-right-0 m-0 p-2">
+  <%= link_to chatrooms_path, class: "btn float-left" do %>
+    <i class="fas fa-chevron-left"></i>
+  <% end %> 
+  <h6 class="m-0 font-weight-bold text-center text-secondary"><%= @chatroom.name %></h6>
+  <div class="dropdown my-auto float-right">
+    <a class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-ellipsis-v"></i>
+    </a >
+    <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownMenuButton">
+      <%= link_to @chatroom, method: :delete, data: { confirm: 'Are you sure?' }, class: "dropdown-item p-3" do %>
+        Excluir
+      <% end %>
+    </div>
+  </div>
+</div>
+<div id="chatroom" class="d-flex flex-column flex-fill">
   <%= render partial: 'messages/list', locals: { messages: @chatroom.messages, chatroom: @chatroom } %>
-<div>
+</div>

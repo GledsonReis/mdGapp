@@ -2,6 +2,7 @@
 
 # chatroom
 class ChatroomsController < AuthController
+  before_action :creating_new?, only: :create
   before_action :set_chatroom, only: %i[show edit update destroy]
 
   def index
@@ -15,7 +16,7 @@ class ChatroomsController < AuthController
     respond_to do |format|
       begin
         ActiveRecord::Base.transaction do
-          @chatroom = Chatroom.create(name: params[:chatroom][:name])
+          @chatroom = Chatroom.create(name: set_chatroom_name)
           @user = User.find(params[:user_id])
           ChatroomUser.create(chatroom_id: @chatroom.id, user_id: @user.id)
           ChatroomUser.create(chatroom_id: @chatroom.id, user_id: current_user.id)
@@ -33,7 +34,23 @@ class ChatroomsController < AuthController
     @chatroom = Chatroom.find(params[:id])
   end
 
-  def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def set_chatroom_name
+    set_user
+    name = @user.username
+    name
+  end
+
+  def creating_new?
+    set_user
+    chatrooms_user1 = Chatroom.joins(:users).where(users: {id: current_user.id})
+    chatrooms_user2 = Chatroom.joins(:users).where(users: {id: @user.id})
+    private_chat = (chatrooms_user1 & chatrooms_user2)
+    if (private_chat.size == 1)
+      redirect_to chatroom_path(private_chat.first)
+    end
   end
 end
