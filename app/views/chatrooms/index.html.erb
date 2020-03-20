@@ -1,21 +1,14 @@
-<% if @chatrooms.present? %>
-  <% @chatrooms.each do |chatroom| %>
-    <%= chatroom.name %>
+<a href="#collapseCardExample" class="d-block bg-white border border-left-0 border-right-0 m-0 p-4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+  <h6 class="m-0 font-weight-bold text-secondary">Recentes</h6>
+</a>
+<div class="collapse show" id="collapseCardExample">
+  <% if @chatrooms.present? %>
+    <% @chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom), class: "d-block bg-light border border-left-0 border-right-0 m-0 p-4" do %>
+        <%= chatroom.users.where.not(id: current_user.id).last.username %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>Nenhuma conversa</p>
   <% end %>
-<% else %>
-  <p>Nenhuma conversa</p>
-<% end %>
-<%= form_with(model: @new_chatroom, local: true) do |form| %>
-  <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control'%>
-  </div>
-
-  <div class="form-group">
-    <%= select_tag(:user_id, options_for_select(current_user.followings.collect { |user| [user.username, user.id] }), class: "form-control") %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Iniciar', class: 'btn btn-dark' %>
-  </div>
-<% end %>
+</div>

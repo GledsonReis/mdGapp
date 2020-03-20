@@ -245,6 +245,10 @@ a {
   font-size: 0.8em;
 }
 
+.message-session {
+  max-height: 100%;
+}
+
 @media(max-width: 1200px){
   .posts {
     margin: 10px auto;
