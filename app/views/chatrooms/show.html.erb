@@ -2,7 +2,7 @@
   <%= link_to chatrooms_path, class: "btn float-left" do %>
     <i class="fas fa-chevron-left"></i>
   <% end %> 
-  <h6 class="m-0 font-weight-bold text-center text-secondary"><%= @chatroom.name %></h6>
+  <h6 class="m-0 font-weight-bold text-center text-secondary"><%= @chatroom.users.where.not(id: current_user.id).last.username %></h6>
   <div class="dropdown my-auto float-right">
     <a class="btn btn-link text-decoration-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-ellipsis-v"></i>

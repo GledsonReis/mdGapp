@@ -4,7 +4,8 @@
 <div class="collapse show" id="collapseCardExample">
   <% if @chatrooms.present? %>
     <% @chatrooms.each do |chatroom| %>
-      <%= link_to chatroom_path(chatroom), class: "d-block bg-light border border-left-0 border-right-0 m-0 p-4" do %><%= chatroom.name %>
+      <%= link_to chatroom_path(chatroom), class: "d-block bg-light border border-left-0 border-right-0 m-0 p-4" do %>
+        <%= chatroom.users.where.not(id: current_user.id).last.username %>
       <% end %>
     <% end %>
   <% else %>

@@ -6,7 +6,7 @@ class ChatroomsController < AuthController
   before_action :set_chatroom, only: %i[show edit update destroy]
 
   def index
-    @chatrooms = Chatroom.all
+    @chatrooms = Chatroom.joins(:users).includes(:users).where(users: { id: current_user.id })
     @new_chatroom = Chatroom.new
   end
 
@@ -21,11 +21,19 @@ class ChatroomsController < AuthController
           ChatroomUser.create(chatroom_id: @chatroom.id, user_id: @user.id)
           ChatroomUser.create(chatroom_id: @chatroom.id, user_id: current_user.id)
         end
-        format.html { redirect_to chatroom_path(@chatroom), notice: 'Post was successfully destroyed.' }
+        format.html { redirect_to chatroom_path(@chatroom), notice: 'Chatroom was successfully destroyed.' }
       rescue StandardError => e
         format.html { render :index }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @chatroom.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    @chatroom.destroy
+    respond_to do |format|
+      format.html { redirect_to chatrooms_path, notice: 'Chatroom was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
