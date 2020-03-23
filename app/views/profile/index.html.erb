@@ -12,6 +12,7 @@
       <div id="follow">
         <%= render 'includes/follow_button', followed: @user, can_follow: @can_follow %>
       </div>
+      <%= link_to "Editar perfil", edit_user_registration_path, class: "btn btn-outline-dark" %>
     </div>
   </div>
   <div class="posts d-flex flex-wrap">

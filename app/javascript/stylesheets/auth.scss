@@ -29,6 +29,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 * {
   box-sizing: border-box;
   font-family: 'MontSerrat', sans-serif;
@@ -59,8 +60,16 @@ a {
   width: 500px;
 }
 
+.sign-up-card {
+  width: 800px;
+}
+
 @media(max-width: 768px){
   .login-card {
-    width: 400px;
+    width: 350px;
+  }
+
+  .sign-up-card {
+    width: 350px;
   }
 }

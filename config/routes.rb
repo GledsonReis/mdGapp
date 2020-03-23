@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
   devise_for :users, controllers: {
-    confirmations: 'confirmations'
+    confirmations: :confirmations,
+    registrations: :registrations
   }
   resources :chatrooms do
     resources :messages
