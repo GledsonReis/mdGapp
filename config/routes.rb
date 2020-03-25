@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  mount ActionCable.server => '/cable'
+
   get 'profile/:id', to: 'profile#index', as: :profile
   get 'follow/:id', to: 'follows#create', as: :follow
   delete 'unfollow/:id', to: 'follows#destroy', as: :unfollow
