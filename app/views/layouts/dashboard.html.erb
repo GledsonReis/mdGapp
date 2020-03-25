@@ -32,10 +32,17 @@
       <a href="#">Configurações</a>
     </div>
     <%= render partial: 'includes/topbar' %>
-    <main class="content container-fluid p-0 overflow-auto h-100">
-      <div class="d-flex flex-column h-100">
-        <%= yield %>
+    <main class="content container-fluid p-0 h-100 overflow-auto">
+      <%= yield %>
+      <div class="d-none" id="message-template">
+        <div class="row m-1">
+          <div class="rounded-lg bg-primary text-white px-4 py-2">
+            <p class="m-0 text-small font-weight-bolder" data-role="message-text"></p>
+            <!--<small data-role="message-date"></small>-->
+          </div>
+        </div>
       </div>
+      <div class="user-id" id="<%= current_user.id %>"></div>
     </main>
     <footer class="footer p-3">
       <span>

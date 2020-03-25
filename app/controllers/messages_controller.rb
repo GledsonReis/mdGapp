@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
   def create
     @message = @chatroom.messages.build(content: params[:message][:content])
     @message.user_id = current_user.id
-    ActionCable.server.broadcast "room_channel", content: @message.content, chat_id: @chatroom.id if @message.save!
+    RoomChannel.broadcast_to @chatroom, @message if @message.save!
   end
 
   # PATCH/PUT /messages/1
