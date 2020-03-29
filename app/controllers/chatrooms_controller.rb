@@ -39,7 +39,14 @@ class ChatroomsController < AuthController
 
   private
   def set_chatroom
-    @chatroom = Chatroom.find(params[:id])
+    begin
+      @chatroom = Chatroom.find(params[:id])
+      if @chatroom.present? && @chatroom.users.exclude?(current_user) 
+        redirect_to not_authorized_path
+      end
+    rescue StandardError => e
+      redirect_to not_found_path
+    end
   end
 
   def set_user
